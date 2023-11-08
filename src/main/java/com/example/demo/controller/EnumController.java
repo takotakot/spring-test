@@ -69,10 +69,19 @@ public class EnumController {
         }
     }
 
+    // @ModelAttribute tStatus taskStatus
+    // と以下コードを併用すると、取得可能
+    // @ModelAttribute
+    // public tStatus getStatus(
+    //         @RequestParam(value = "taskStatus", required = false) String statusWord) {
+    //     return tStatus.create(statusWord);
+    // }
+
     @GetMapping
     public String getTasks(
             @RequestParam(value = "taskPriority", required = false) tPriority taskPriority,
             @RequestParam(value = "taskStatus", required = false) tStatus taskStatus
+            // @ModelAttribute(name = "taskStatus", binding = false) tStatus taskStatus
             ) {
         System.out.println("taskPriority: " + taskPriority);
         System.out.println("taskStatus: " + taskStatus);
