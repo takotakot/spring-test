@@ -2,6 +2,7 @@ package com.example.tdd.closedLongInterval;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.security.InvalidParameterException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,16 @@ public class ClosedLongIntervalTest {
     void 下端と上端が等しい場合はインスタンスが作成できる() {
       var instance = new ClosedLongInterval(3, 3);
       assertInstanceOf(ClosedLongInterval.class, instance);
+    }
+  }
+
+  @Nested
+  class _3_8_に属する {
+    ClosedLongInterval interval = new ClosedLongInterval(3, 8);
+
+    @Test
+    void _3は閉区間_3_8_に属する() {
+      assertTrue(interval.contains(3));
     }
   }
 }
