@@ -17,6 +17,10 @@ public class ClosedLongInterval {
     return lowerLimit <= value && value <= upperLimit;
   }
 
+  public boolean contains(ClosedLongInterval other) {
+    return true;
+  }
+
   @Override
   public String toString() {
     return String.format("[%d, %d]", lowerLimit, upperLimit);

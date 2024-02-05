@@ -77,4 +77,22 @@ public class ClosedLongIntervalTest {
       assertFalse(interval.equals(null));
     }
   }
+
+  @Nested
+  class 包含 {
+    @ParameterizedTest
+    @CsvSource({"3, 8, 3, 8, true", "3, 8, 4, 7, true", "3, 8, 0, 4, false"})
+    void 包含関係が判定できる(long lowerLimit, long upperLimit, long otherLowerLimit, long otherUpperLimit,
+        boolean expected) {
+      var interval = new ClosedLongInterval(lowerLimit, upperLimit);
+      var other = new ClosedLongInterval(otherLowerLimit, otherUpperLimit);
+      assertEquals(expected, interval.contains(other));
+    }
+
+    @Test
+    void nullとは包含関係にない() {
+      ClosedLongInterval interval = new ClosedLongInterval(3, 8);
+      assertFalse(interval.contains(null));
+    }
+  }
 }
