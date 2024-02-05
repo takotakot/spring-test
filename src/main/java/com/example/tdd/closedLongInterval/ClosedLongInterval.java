@@ -23,6 +23,9 @@ public class ClosedLongInterval {
   }
 
   public boolean equals(ClosedLongInterval other) {
+    if (other == null) {
+      return false;
+    }
     return lowerLimit == other.lowerLimit && upperLimit == other.upperLimit;
   }
 }
