@@ -14,6 +14,6 @@ public class ClosedLongInterval {
   }
 
   public boolean contains(long value) {
-    return true;
+    return lowerLimit <= value && value <= upperLimit;
   }
 }
