@@ -1,5 +1,6 @@
 package com.example.tdd.closedLongInterval;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -38,6 +39,12 @@ public class ClosedLongIntervalTest {
     @ValueSource(longs = {3, 5, 8})
     void 閉区間_3_8_に属する(long value) {
       assertTrue(interval.contains(value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(longs = {2, 9})
+    void 閉区間_3_8_に属さない(long value) {
+      assertFalse(interval.contains(value));
     }
   }
 }
