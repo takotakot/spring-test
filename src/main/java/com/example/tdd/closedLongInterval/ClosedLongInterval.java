@@ -21,4 +21,8 @@ public class ClosedLongInterval {
   public String toString() {
     return String.format("[%d, %d]", lowerLimit, upperLimit);
   }
+
+  public boolean equals(ClosedLongInterval other) {
+    return lowerLimit == other.lowerLimit && upperLimit == other.upperLimit;
+  }
 }
