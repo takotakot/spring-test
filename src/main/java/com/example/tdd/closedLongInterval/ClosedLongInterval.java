@@ -18,7 +18,10 @@ public class ClosedLongInterval {
   }
 
   public boolean contains(ClosedLongInterval other) {
-    return true;
+    if (other == null) {
+      return false;
+    }
+    return lowerLimit <= other.lowerLimit && other.upperLimit <= upperLimit;
   }
 
   @Override
