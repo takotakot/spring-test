@@ -1,9 +1,14 @@
 package com.example.tdd.closedLongInterval;
 
+import java.security.InvalidParameterException;
+
 public class ClosedLongInterval {
   private long lowerLimit, upperLimit;
 
   public ClosedLongInterval(long lowerLimit, long upperLimit) {
+    if (lowerLimit > upperLimit) {
+      throw new InvalidParameterException();
+    }
     this.lowerLimit = lowerLimit;
     this.upperLimit = upperLimit;
   }
