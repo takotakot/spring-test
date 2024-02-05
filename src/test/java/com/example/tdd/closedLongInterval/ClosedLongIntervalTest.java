@@ -59,4 +59,16 @@ public class ClosedLongIntervalTest {
       assertEquals(expected, interval.toString());
     }
   }
+
+  @Nested
+  class 等価な閉区間 {
+    @ParameterizedTest
+    @CsvSource({"3, 8, 3, 8, true", "3, 8, 0, 8, false", "3, 8, 3, 5, false"})
+    void 等価な閉区間が判定できる(long lowerLimit, long upperLimit, long otherLowerLimit, long otherUpperLimit,
+        boolean expected) {
+      var interval = new ClosedLongInterval(lowerLimit, upperLimit);
+      var other = new ClosedLongInterval(otherLowerLimit, otherUpperLimit);
+      assertEquals(expected, interval.equals(other));
+    }
+  }
 }
