@@ -70,5 +70,11 @@ public class ClosedLongIntervalTest {
       var other = new ClosedLongInterval(otherLowerLimit, otherUpperLimit);
       assertEquals(expected, interval.equals(other));
     }
+
+    @Test
+    void nullとは等しくない() {
+      ClosedLongInterval interval = new ClosedLongInterval(3, 8);
+      assertFalse(interval.equals(null));
+    }
   }
 }
