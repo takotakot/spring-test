@@ -19,5 +19,11 @@ public class ClosedLongIntervalTest {
     void 下端が上端より大きいとInvalidParameterException例外を投げる() {
       assertThrows(InvalidParameterException.class, () -> new ClosedLongInterval(8, 3));
     }
+
+    @Test
+    void 下端と上端が等しい場合はインスタンスが作成できる() {
+      var instance = new ClosedLongInterval(3, 3);
+      assertInstanceOf(ClosedLongInterval.class, instance);
+    }
   }
 }
