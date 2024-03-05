@@ -100,5 +100,12 @@ public class DinnerReservationTest {
           .setCoupon(1);
       assertEquals(0, instance.getDiscountedFee());
     }
+
+    @Test
+    public void 梅4人はクーポン1枚を使用でき割引後2_000円() {
+      instance.addCourse(DinnerReservation.Course.梅, 4)//
+          .setCoupon(1);
+      assertEquals(2_000, instance.getDiscountedFee());
+    }
   }
 }
