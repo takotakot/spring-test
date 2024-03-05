@@ -32,6 +32,8 @@ import org.junit.jupiter.api.Test;
  *     - 梅7人はクーポン3枚を使用できない
  *     - 梅10人はクーポン3枚を使用でき、割引後0円
  *     - 梅11人はクーポン3枚を使用でき、割引後3,000円
+ *   - クーポンは4枚以上を使用できない
+ *     - 松10人はクーポン4枚を使用できない
  * </pre>
  */
 public class DinnerReservationTest {
