@@ -1,6 +1,7 @@
 package com.example.demo.dinner_reservation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -81,6 +82,16 @@ public class DinnerReservationTest {
           .addCourse(DinnerReservation.Course.竹, 2)//
           .addCourse(DinnerReservation.Course.梅, 3);
       assertEquals(26_000, instance.getBasicFee());
+    }
+  }
+
+  @Nested
+  class クーポンを1枚利用 {
+    @Test
+    public void 梅3人はクーポン1枚を使用できない() {
+      instance.addCourse(DinnerReservation.Course.梅, 3)//
+          .setCoupon(1);
+      assertThrows(IllegalStateException.class, () -> instance.getDiscountedFee());
     }
   }
 }

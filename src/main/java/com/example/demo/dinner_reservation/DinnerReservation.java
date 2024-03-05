@@ -4,11 +4,16 @@ public class DinnerReservation {
   long matsuMembers;
   long takeMembers;
   long umeMembers;
+  long coupon;
 
   long getBasicFee() {
     return Course.松.getPrice() * matsuMembers
         + Course.竹.getPrice() * takeMembers
         + Course.梅.getPrice() * umeMembers;
+  }
+
+  long getDiscountedFee() {
+    return 0;
   }
 
   DinnerReservation addCourse(Course course, long numberOfPeople) {
@@ -21,6 +26,11 @@ public class DinnerReservation {
     } else {
       throw new IllegalArgumentException();
     }
+    return this;
+  }
+
+  DinnerReservation setCoupon(long coupon) {
+    this.coupon = coupon;
     return this;
   }
 
