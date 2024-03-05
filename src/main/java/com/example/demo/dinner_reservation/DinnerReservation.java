@@ -2,15 +2,18 @@ package com.example.demo.dinner_reservation;
 
 public class DinnerReservation {
   long matsuMembers;
+  long takeMembers;
 
   long getBasicFee() {
-    // return 0;
-    return Course.松.getPrice() * matsuMembers;
+    return Course.松.getPrice() * matsuMembers
+        + Course.竹.getPrice() * takeMembers;
   }
 
   void addCourse(Course course, long numberOfPeople) {
     if (course == Course.松) {
       matsuMembers = numberOfPeople;
+    } else if (course == Course.竹) {
+      takeMembers = numberOfPeople;
     }
   }
 

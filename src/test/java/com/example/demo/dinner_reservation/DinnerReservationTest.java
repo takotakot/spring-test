@@ -59,7 +59,7 @@ public class DinnerReservationTest {
   class 竹コース {
     @Test
     public void 竹4人は20_000円() {
-      instance.addCourse(DinnerReservation.Course.竹, 3);
+      instance.addCourse(DinnerReservation.Course.竹, 4);
       assertEquals(20_000, instance.getBasicFee());
     }
   }
