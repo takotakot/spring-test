@@ -11,7 +11,7 @@ public class DinnerReservation {
         + Course.梅.getPrice() * umeMembers;
   }
 
-  void addCourse(Course course, long numberOfPeople) {
+  DinnerReservation addCourse(Course course, long numberOfPeople) {
     if (course == Course.松) {
       matsuMembers = numberOfPeople;
     } else if (course == Course.竹) {
@@ -21,6 +21,7 @@ public class DinnerReservation {
     } else {
       throw new IllegalArgumentException();
     }
+    return this;
   }
 
   enum Course {
