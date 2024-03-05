@@ -1,10 +1,14 @@
 package com.example.demo.dinner_reservation;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * <pre>
  * - 「予約」という概念をもつ
  * - コースと人数を受け付け、基本料金・総額を計算できる
+ *   - 初期状態では総額が0円
  *   - 松は7,000円かける人数である
  *     - 松3人は21,000円
  *   - 竹は5,000円かける人数である
@@ -29,5 +33,15 @@ package com.example.demo.dinner_reservation;
  * </pre>
  */
 public class DinnerReservationTest {
-  
+  DinnerReservation instance;
+
+  @BeforeEach
+  void setup() {
+    instance = new DinnerReservation();
+  }
+
+  @Test
+  public void 初期状態では総額が0円() {
+    assertEquals(0, instance.getBasicFee());
+  }
 }
