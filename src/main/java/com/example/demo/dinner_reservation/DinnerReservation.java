@@ -3,10 +3,12 @@ package com.example.demo.dinner_reservation;
 public class DinnerReservation {
   long matsuMembers;
   long takeMembers;
+  long umeMembers;
 
   long getBasicFee() {
     return Course.松.getPrice() * matsuMembers
-        + Course.竹.getPrice() * takeMembers;
+        + Course.竹.getPrice() * takeMembers
+        + Course.梅.getPrice() * umeMembers;
   }
 
   void addCourse(Course course, long numberOfPeople) {
@@ -14,6 +16,10 @@ public class DinnerReservation {
       matsuMembers = numberOfPeople;
     } else if (course == Course.竹) {
       takeMembers = numberOfPeople;
+    } else if (course == Course.梅) {
+      umeMembers = numberOfPeople;
+    } else {
+      throw new IllegalArgumentException();
     }
   }
 
