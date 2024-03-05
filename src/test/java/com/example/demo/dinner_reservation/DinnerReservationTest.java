@@ -93,5 +93,12 @@ public class DinnerReservationTest {
           .setCoupon(1);
       assertThrows(IllegalStateException.class, () -> instance.getDiscountedFee());
     }
+
+    @Test
+    public void 竹2人はクーポン1枚を使用でき割引後0円() {
+      instance.addCourse(DinnerReservation.Course.竹, 2)//
+          .setCoupon(1);
+      assertEquals(0, instance.getDiscountedFee());
+    }
   }
 }
