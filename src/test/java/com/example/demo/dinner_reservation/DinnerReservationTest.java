@@ -110,4 +110,28 @@ public class DinnerReservationTest {
       assertEquals(2_000, instance.getDiscountedFee());
     }
   }
+
+  @Nested
+  class クーポンを2枚利用 {
+    @Test
+    public void 梅4人はクーポン2枚を使用できない() {
+      instance.addCourse(DinnerReservation.Course.梅, 4)//
+          .setCoupon(2);
+      assertThrows(IllegalStateException.class, () -> instance.getDiscountedFee());
+    }
+
+    @Test
+    public void 竹4人はクーポン2枚を使用でき割引後0円() {
+      instance.addCourse(DinnerReservation.Course.竹, 4)//
+          .setCoupon(2);
+      assertEquals(0, instance.getDiscountedFee());
+    }
+
+    @Test
+    public void 梅7人はクーポン2枚を使用でき割引後1_000円() {
+      instance.addCourse(DinnerReservation.Course.梅, 7)//
+          .setCoupon(2);
+      assertEquals(1_000, instance.getDiscountedFee());
+    }
+  }
 }
