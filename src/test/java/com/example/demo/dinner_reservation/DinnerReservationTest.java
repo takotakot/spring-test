@@ -54,4 +54,13 @@ public class DinnerReservationTest {
       assertEquals(21_000, instance.getBasicFee());
     }
   }
+
+  @Nested
+  class 竹コース {
+    @Test
+    public void 竹4人は20_000円() {
+      instance.addCourse(DinnerReservation.Course.竹, 3);
+      assertEquals(20_000, instance.getBasicFee());
+    }
+  }
 }
