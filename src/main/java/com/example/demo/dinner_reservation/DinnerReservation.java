@@ -6,6 +6,8 @@ public class DinnerReservation {
   long umeMembers;
   long coupon;
 
+  final private long COUPON_VALUE = 10_000;
+
   long getBasicFee() {
     return Course.松.getPrice() * matsuMembers
         + Course.竹.getPrice() * takeMembers
@@ -13,6 +15,10 @@ public class DinnerReservation {
   }
 
   long getDiscountedFee() {
+    long basicFee = getBasicFee();
+    if (basicFee >= COUPON_VALUE * coupon) {
+      return basicFee - COUPON_VALUE * coupon;
+    }
     throw new IllegalStateException();
   }
 
