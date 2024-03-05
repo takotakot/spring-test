@@ -1,11 +1,17 @@
 package com.example.demo.dinner_reservation;
 
 public class DinnerReservation {
+  long matsuMembers;
+
   long getBasicFee() {
-    return 0;
+    // return 0;
+    return Course.松.getPrice() * matsuMembers;
   }
 
   void addCourse(Course course, long numberOfPeople) {
+    if (course == Course.松) {
+      matsuMembers = numberOfPeople;
+    }
   }
 
   enum Course {
