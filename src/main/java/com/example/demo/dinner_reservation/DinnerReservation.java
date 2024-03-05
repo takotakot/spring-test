@@ -13,7 +13,7 @@ public class DinnerReservation {
   }
 
   long getDiscountedFee() {
-    return 0;
+    throw new IllegalStateException();
   }
 
   DinnerReservation addCourse(Course course, long numberOfPeople) {
