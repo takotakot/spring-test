@@ -158,4 +158,14 @@ public class DinnerReservationTest {
       assertEquals(3_000, instance.getDiscountedFee());
     }
   }
+
+  @Nested
+  class クーポンを4枚利用 {
+    @Test
+    public void 松10人はクーポン4枚を使用できない() {
+      instance.addCourse(DinnerReservation.Course.松, 10)//
+          .setCoupon(4);
+      assertThrows(IllegalStateException.class, () -> instance.getDiscountedFee());
+    }
+  }
 }
