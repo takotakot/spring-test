@@ -2,6 +2,7 @@ package com.example.demo.dinner_reservation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -43,5 +44,14 @@ public class DinnerReservationTest {
   @Test
   public void 初期状態では総額が0円() {
     assertEquals(0, instance.getBasicFee());
+  }
+
+  @Nested
+  class 松コース {
+    @Test
+    public void 松3人は21_000円() {
+      instance.addCourse(DinnerReservation.Course.松, 3);
+      assertEquals(21_000, instance.getBasicFee());
+    }
   }
 }
